@@ -397,6 +397,7 @@ impl<'a, 'dir, C: Colours> FileName<'a, 'dir, C> {
                 let abs_path = abs_path
                     .strip_prefix("\\\\?\\")
                     .unwrap_or(&abs_path)
+                    .replace("UNC", "\\")
                     .to_string();
 
                 let distro_name = std::env::var("WSL_DISTRO_NAME").ok();
